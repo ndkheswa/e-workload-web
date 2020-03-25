@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "e-workload"
+    }
+  },
+  "defaultProject": "e-workload",
+  "cli": {
+    "analytics": false
+  }
 }
