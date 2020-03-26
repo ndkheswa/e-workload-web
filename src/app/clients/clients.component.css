@@ -1,0 +1,44 @@
+h1 {
+  font-size: x-large;
+}
+
+p {
+  font-size: large;
+}
+
+table {
+  width: 80%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
+}
+
+th.mat-header-cell {
+  text-align: left;
+  max-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 700px;
+}
+
+.mat-header-cell .mat-sort-header-sorted {
+  color: #0A0A0A;
+}
+
+md-pagination-wrapper {
+  width:auto !important;
+}
+
+md-row:nth-child(even){
+background-color:#EDF1F5;
+}
+
+md-row:nth-child(odd){
+background-color:#FDFDFB;
+}
+
+.mat-column-color {
+  flex: 0 0 10px;
+}
