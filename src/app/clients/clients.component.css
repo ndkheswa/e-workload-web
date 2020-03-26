@@ -1,8 +1,10 @@
-h1 {
-  font-size: x-large;
+.container{
+  background-color: white;
 }
-
 p {
+  width: 100%;
+  background-color: white;
+  margin-left: 10px;
   font-size: large;
 }
 
