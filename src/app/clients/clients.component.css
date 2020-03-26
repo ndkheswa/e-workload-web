@@ -7,7 +7,7 @@ p {
 }
 
 table {
-  width: 80%;
+  width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   min-width: 500px;
@@ -15,12 +15,16 @@ table {
 
 th.mat-header-cell {
   text-align: left;
-  max-width: 300px;
+  max-width: 400px;
 }
 
 .mat-table {
   overflow: auto;
   max-height: 700px;
+}
+
+.mat-header-cell{
+  font-size: large;
 }
 
 .mat-header-cell .mat-sort-header-sorted {

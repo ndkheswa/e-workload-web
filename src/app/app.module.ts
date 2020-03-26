@@ -33,6 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './header/header.component';
+import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { HeaderComponent } from './header/header.component';
     AddClientsComponent,
     EditClientsComponent,
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidenavListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

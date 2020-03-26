@@ -1,13 +1,11 @@
 <div>
-    <h1>Registered Clients</h1>
-    <p>The following is a list of registered clients, that work with Gcina Human Capital. <br/><br/></p>
 
     <div class="spinner-container" *ngIf="!dataSource">
       <mat-spinner></mat-spinner>
       <br /> <br />
     </div>
 
-  <table mat-table [dataSource]="dataSource" *ngIf="dataSource" class="mat-elevation-z4" align="center">
+  <table mat-table [dataSource]="dataSource" *ngIf="dataSource" class="mat-elevation-z4">
     <ng-container matColumnDef="clientId">
       <mat-header-cell *matHeaderCellDef>clientId</mat-header-cell>
       <mat-cell *matCellDef="let client">{{ client.id }}</mat-cell>
@@ -24,7 +22,7 @@
     </ng-container>
 
     <ng-container matColumnDef="occupation">
-      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>Occupation</mat-header-cell>
     <mat-cell *matCellDef="let client">{{ client.occupation }}</mat-cell>
     </ng-container>
 
