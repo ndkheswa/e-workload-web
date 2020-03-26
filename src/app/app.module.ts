@@ -31,13 +31,17 @@ import { AddClientsComponent } from './add-clients/add-clients.component';
 import { EditClientsComponent } from './edit-clients/edit-clients.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutComponent } from './layout/layout.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientsComponent,
     AddClientsComponent,
-    EditClientsComponent
+    EditClientsComponent,
+    LayoutComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

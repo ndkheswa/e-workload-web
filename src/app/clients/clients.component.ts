@@ -27,4 +27,8 @@ export class ClientsComponent implements OnInit {
       );
   }
 
+  onRowClicked(row): void {
+    console.log('Row clicked', row);
+  }
+
 }
