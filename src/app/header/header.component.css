@@ -20,6 +20,10 @@ mat-toolbar{
   height: 140px;
 }
 
+h1{
+  font-family: Source Sans Pro;
+}
+
 @media(max-width: 959px){
   mat-toolbar{
       border-radius: 0px;

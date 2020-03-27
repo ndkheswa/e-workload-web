@@ -10,7 +10,7 @@ export class ClientsComponent implements OnInit {
 
   dataSource = [];
 
-  clientColumns = ['clientId', 'firstName', 'lastName', 'phone', 'occupation', 'gender', 'email', 'dob', 'age'];
+  clientColumns = ['clientId', 'firstName', 'lastName', 'occupation', 'gender', 'dob', 'phone', 'email', 'details'];
 
   constructor(private clientService: ClientService) { }
 
@@ -29,6 +29,14 @@ export class ClientsComponent implements OnInit {
 
   onRowClicked(row): void {
     console.log('Row clicked', row);
+  }
+
+  deleteCustomer(id: number): void {
+    console.log('customer deleted');
+  }
+
+  editCustomer(id: number) {
+    console.log('edit customer');
   }
 
 }
