@@ -1,11 +1,29 @@
-<div class="container" fxLayout="row wrap" fxLayoutAlign="center center" class="layout-wrapper" >
+<div class="container" fxLayout="row wrap" fxLayoutAlign="start" class="layout-wrapper" >
   <div class="nav-sidebar" fxFlex="230px">
-        <mat-nav-list>
-          <a mat-button [routerLink]="'/dashboard'"> Dashboard </a>
-          <a mat-button [routerLink]="'/clients'"> Clients </a>
-          <a mat-button [routerLink]="'/bookings'"> Bookings </a>
-          <a mat-button [routerLink]="'/logout'"> Logout </a>
-        </mat-nav-list>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" >
+        <mat-icon>dashboard</mat-icon> <span class="nav-caption">Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/owner" >
+        <mat-icon>bookings</mat-icon> <span class="nav-caption">Bookings</span>
+      </a>
+      <a mat-list-item routerLink="#" >
+        <mat-icon>add</mat-icon><span class="nav-caption">Add Booking</span>
+      </a>
+      <a mat-list-item routerLink="#" >
+        <mat-icon>edit</mat-icon><span class="nav-caption">Edit Booking</span>
+      </a>
+      <a mat-list-item routerLink="#" >
+        <mat-icon>people</mat-icon><span class="nav-caption">Clients</span>
+      </a>
+      <a mat-list-item routerLink="#" >
+        <mat-icon>edit</mat-icon><span class="nav-caption">Edit Clients</span>
+      </a>
+      <a mat-list-item routerLink="#" >
+        <mat-icon>logout</mat-icon><span class="nav-caption">Logout</span>
+      </a>
+    </mat-nav-list>
+
   </div>
   <div fxFlex fxFlex.lt-md="100%" class="flex-wrapper">
       <ng-content></ng-content>

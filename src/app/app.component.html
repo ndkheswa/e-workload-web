@@ -2,11 +2,9 @@
   <mat-sidenav-container>
     <mat-sidenav #sidenav role="navigation">
       <!-- side-nav code comes here -->
-      <app-sidenav-list></app-sidenav-list>
     </mat-sidenav>
     <mat-sidenav-content fxLayout="column">
-      <!-- side-nav content code comes here -->
-      <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+      <app-header></app-header>
       <main>
         <router-outlet></router-outlet>
       </main>
