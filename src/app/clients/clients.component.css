@@ -4,13 +4,14 @@
 
 .main-content{
   width: 90%;
+  font-size: larger;
 }
 
 p {
   width: 100%;
   background-color: white;
   margin-left: 10px;
-  font-size: large;
+  font-size: small;
 }
 
 table {
