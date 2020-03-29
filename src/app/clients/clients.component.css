@@ -58,6 +58,11 @@ table {
   max-height: 700px;
 }
 
+.mat-cell{
+  font-size: medium;
+  font-family: Source Sans Pro;
+}
+
 .mat-header-cell{
   font-size: large;
   font-family: Source Sans Pro;
@@ -86,4 +91,8 @@ background-color:#FDFDFB;
 
 .mat-column-color {
   flex: 0 0 10px;
+}
+
+.mat-table {
+  display: block;
 }

@@ -27,8 +27,8 @@ import { BASE_URL } from './tokens';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { ClientsComponent } from './clients/clients.component';
-import { AddClientsComponent } from './add-clients/add-clients.component';
-import { EditClientsComponent } from './edit-clients/edit-clients.component';
+import { AddClientComponent } from './add-client/add-client.component';
+import { EditClientComponent } from './edit-client/edit-client.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component';
@@ -40,12 +40,13 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     AppComponent,
     ClientsComponent,
-    AddClientsComponent,
-    EditClientsComponent,
+    AddClientComponent,
+    EditClientComponent,
     LayoutComponent,
     HeaderComponent,
     SidenavListComponent,
-    FooterComponent
+    FooterComponent,
+    AddClientComponent
   ],
   imports: [
     BrowserModule,
