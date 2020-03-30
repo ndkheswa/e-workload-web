@@ -1,36 +1,8 @@
-<app-header (toggleSidenav)="navigationSidenav.toggle()"></app-header>
-
-<mat-sidenav-container autosize>
-
-  <mat-sidenav #navigationSidenav mode="over" role="navigation">
-
-    <mat-nav-list>
-      <a mat-list-item routerLink="bookings" routerLinkActive="list-item-active">
-        <mat-icon color="primary">bookings</mat-icon> <span class="nav-caption">Bookings</span>
-      </a>
-      <a mat-list-item routerLink="add-booking" >
-        <mat-icon color="primary">add</mat-icon><span class="nav-caption">Add Booking</span>
-      </a>
-      <a mat-list-item routerLink="edit-booking" >
-        <mat-icon color="primary">edit</mat-icon><span class="nav-caption">Edit Booking</span>
-      </a>
-      <a mat-list-item routerLink="clients" >
-        <mat-icon color="primary">people</mat-icon><span class="nav-caption">Clients</span>
-      </a>
-      <a mat-list-item routerLink="edit-client" >
-        <mat-icon color="primary">edit</mat-icon><span class="nav-caption">Edit Client</span>
-      </a>
-      <a mat-list-item routerLink="logout" >
-        <mat-icon color="primary">logout</mat-icon><span class="nav-caption">Logout</span>
-      </a>
-
-      <mat-divider></mat-divider>
-
-    </mat-nav-list>
-
-  </mat-sidenav>
-
-  <mat-sidenav-content role="main">
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div fxLayout="row wrap" fxLayoutAlign="start start" class="layout-wrapper">
+  <div class="nav-sidebar" fxFlex="230px">
+    <app-sidenav-list></app-sidenav-list>
+  </div>
+  <div fxFlex fxFlex.lt-md="100%" class="flex-wrapper">
+      <ng-content></ng-content>
+  </div>
+</div>

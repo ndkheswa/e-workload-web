@@ -1,20 +1,22 @@
+<div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
+  <div class="spinner-container" *ngIf="!dataSource">
+    <mat-spinner></mat-spinner>
+    <br /> <br />
+  </div>
 
+  <p>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      <mat-icon matSuffix>search</mat-icon>
+      <mat-hint></mat-hint>
+    </mat-form-field>
+  </p>
 
-<div class="spinner-container" *ngIf="!dataSource">
-  <mat-spinner></mat-spinner>
-  <br /> <br />
+  <h1>Clients</h1>
+
 </div>
-
-<p>
-  <br />
-  <mat-form-field appearance="outline">
-    <mat-label>Search</mat-label>
-    <input matInput placeholder="Search">
-    <mat-icon matSuffix>search</mat-icon>
-    <mat-hint></mat-hint>
-  </mat-form-field>
-</p>
-
 <div>
   <table mat-table [dataSource]="dataSource" *ngIf="dataSource" class="mat-elevation-z4">
     <ng-container matColumnDef="clientId">
@@ -59,7 +61,7 @@
 
     <ng-container  matColumnDef="details">
       <mat-header-cell *matHeaderCellDef>Details</mat-header-cell>
-      <mat-cell *matCellDef="let element"><button  mat-button  color="primary" (click)="editCustomer(element.id)"><mat-icon>more_horiz</mat-icon></button>  </mat-cell>
+      <mat-cell *matCellDef="let element"><button  mat-button  color="primary" (click)="editCustomer(element.id)"><mat-icon>reorder</mat-icon></button>  </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="clientColumns"></mat-header-row>

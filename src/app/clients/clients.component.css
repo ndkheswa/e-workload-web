@@ -10,8 +10,14 @@
 p {
   width: 100%;
   background-color: white;
-  margin-left: 10px;
+  margin-left: 0px;
   font-size: small;
+}
+
+h1 {
+  position: relative;
+  margin-right: 900px;
+  font-weight: 550;
 }
 
 table {
@@ -53,11 +59,6 @@ table {
   hyphens: auto;
 }
 
-.mat-table {
-  overflow: auto;
-  max-height: 700px;
-}
-
 .mat-cell{
   font-size: medium;
   font-family: Source Sans Pro;
@@ -91,8 +92,4 @@ background-color:#FDFDFB;
 
 .mat-column-color {
   flex: 0 0 10px;
-}
-
-.mat-table {
-  display: block;
 }

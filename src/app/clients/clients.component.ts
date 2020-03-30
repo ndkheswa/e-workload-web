@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../service/client.service';
+import { Client } from '../models/client.model';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-clients',
@@ -8,9 +10,10 @@ import { ClientService } from '../service/client.service';
 })
 export class ClientsComponent implements OnInit {
 
-  dataSource = [];
+  dataSource: MatTableDataSource<Client>;
 
   clientColumns = ['clientId', 'firstName', 'lastName', 'occupation', 'gender', 'dob', 'phone', 'email', 'details'];
+  clientList = [];
 
   constructor(private clientService: ClientService) { }
 
@@ -22,7 +25,8 @@ export class ClientsComponent implements OnInit {
     this.clientService.getClients()
       .subscribe(
         response => {
-          this.dataSource = response["content"];
+          this.clientList = response["content"];
+          this.dataSource = new MatTableDataSource(this.clientList);
         }
       );
   }
@@ -37,6 +41,10 @@ export class ClientsComponent implements OnInit {
 
   editCustomer(id: number) {
     console.log('edit customer');
+  }
+
+  applyFilter(value: string): void {
+    this.dataSource.filter = value.trim().toLowerCase();
   }
 
 }

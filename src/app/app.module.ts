@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -22,6 +22,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { BASE_URL } from './tokens';
 import { environment } from 'src/environments/environment';
@@ -52,6 +54,7 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
@@ -73,6 +76,8 @@ import { FooterComponent } from './footer/footer.component';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     { provide: 'BASE_URL', useValue: environment.apiRoot }

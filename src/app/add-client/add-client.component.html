@@ -1,1 +1,68 @@
-<p>add-client works!</p>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <form [formGroup]="clientForm" autocomplete="off" novalidate (ngSubmit)="addClient(clientForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+
+      <mat-card fxFlex="1400px" fxLayoutGap="20px" fxFlex.xs="100%">
+        <mat-card-title>Register Client</mat-card-title>
+        <h2>Biographical Information</h2>
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Surname</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Occupation</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Gender</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth" formControlName="dateOfBirth" id="dateOfBirth"
+            readonly (click)="picker.open()">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Occupation</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Occupation</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input matInput placeholder="Placeholder">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        </mat-card>
+
+    </form>
+
+</section>
