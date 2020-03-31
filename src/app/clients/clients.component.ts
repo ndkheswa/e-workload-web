@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ClientService } from '../service/client.service';
 import { Client } from '../models/client.model';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-clients',
@@ -15,6 +17,9 @@ export class ClientsComponent implements OnInit {
   clientColumns = ['clientId', 'firstName', 'lastName', 'occupation', 'gender', 'dob', 'phone', 'email', 'details'];
   clientList = [];
 
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(private clientService: ClientService) { }
 
   ngOnInit() {
@@ -27,6 +32,10 @@ export class ClientsComponent implements OnInit {
         response => {
           this.clientList = response["content"];
           this.dataSource = new MatTableDataSource(this.clientList);
+          setTimeout(() => {
+            this.dataSource.sort = this.sort;
+            this.dataSource.paginator = this.paginator;
+          });
         }
       );
   }

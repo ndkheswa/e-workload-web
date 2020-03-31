@@ -18,7 +18,7 @@
 
 </div>
 <div>
-  <table mat-table [dataSource]="dataSource" *ngIf="dataSource" class="mat-elevation-z4">
+  <table mat-table [dataSource]="dataSource" *ngIf="dataSource" class="mat-elevation-z4"  matSort>
     <ng-container matColumnDef="clientId">
       <mat-header-cell *matHeaderCellDef>Client ID</mat-header-cell>
       <mat-cell *matCellDef="let client">{{ client.id }}</mat-cell>
@@ -30,7 +30,7 @@
     </ng-container>
 
     <ng-container matColumnDef="lastName">
-      <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
     <mat-cell *matCellDef="let client">{{ client.lastName }}</mat-cell>
     </ng-container>
 
@@ -40,7 +40,7 @@
     </ng-container>
 
     <ng-container matColumnDef="gender">
-      <mat-header-cell *matHeaderCellDef>Gender</mat-header-cell>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
     <mat-cell *matCellDef="let client">{{ client.gender }}</mat-cell>
     </ng-container>
 
@@ -67,5 +67,7 @@
     <mat-header-row *matHeaderRowDef="clientColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: clientColumns" (click)="onRowClicked(row)"></mat-row>
   </table>
+  <mat-paginator [pageSize]="4" [pageSizeOptions]="[4, 8, 16, 20]">
+  </mat-paginator>
 </div>
 
