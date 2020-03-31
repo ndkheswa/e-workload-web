@@ -13,6 +13,10 @@ const httpOptions = {
 })
 export class ClientService {
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   apiUrl: string;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) { this.apiUrl = baseUrl; }
@@ -30,6 +34,10 @@ export class ClientService {
 
   getClients(): Observable<any> {
     return this.http.get<any>(this.apiUrl + '/api/v1/clients');
+  }
+
+  public create(client: Client): Observable<Client> {
+    return this.http.post<Client>(this.apiUrl + '/api/v1/clients', client, this.httpOptions);
   }
 
 }

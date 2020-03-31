@@ -6,7 +6,6 @@ import { ClientsComponent } from './clients/clients.component';
 const routes: Routes = [
   { path: 'clients', component: ClientsComponent },
   { path: 'register-client', component: AddClientComponent },
-  { path: 'add-client', component: AddClientComponent },
   { path: '', redirectTo: '/clients', pathMatch: 'full'}
 ];
 

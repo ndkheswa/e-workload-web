@@ -1,5 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { Client } from '../models/client.model';
+import { ClientService } from '../service/client.service';
+import { SuccessDialogComponent } from '../shared/dialogs/success-dialog/success-dialog.component';
+import { Location } from '@angular/common';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-client',
@@ -8,20 +13,30 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 })
 export class AddClientComponent implements OnInit {
 
-  @Input() public clientForm: FormGroup;
+  public clientForm: FormGroup;
+  private dialogConfig;
 
-  constructor() { }
+  // tslint:disable-next-line:max-line-length
+  constructor(private clientService: ClientService, private dialogRef: MatDialogRef<SuccessDialogComponent>,
+              private dialog: MatDialog, private location: Location, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     this.clientForm = new FormGroup({
-      dateOfBirth: new FormControl(new Date()),
-      firstName: new FormControl(),
-      address: new FormControl('', [Validators.required, Validators.maxLength(100)])
+      firstName: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+      lastName: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+      occupation: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+      gender: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+      birthDate: new FormControl(new Date()),
+      phone: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+      email: new FormControl('', [Validators.required, Validators.maxLength(100)])
     });
-  }
 
-  public addClient(clientFormValue) {
-    console.log('TODO');
+    this.dialogConfig = {
+      height: '200px',
+      width: '400px',
+      disableClose: true,
+      data: {}
+    };
   }
 
   public hasError = (controlName: string, errorName: string) => {
@@ -30,6 +45,38 @@ export class AddClientComponent implements OnInit {
 
   public onCancel = () => {
     console.log('TODO');
+  }
+
+  public registerClient = (clientFormValue) => {
+    if (this.clientForm.valid) {
+      this.executeCreateClient(clientFormValue);
+    }
+  }
+
+  public executeCreateClient = (clientFormValue) => {
+
+    const client: Client = {
+      id: clientFormValue.id,
+      firstName: clientFormValue.firstName,
+      lastName: clientFormValue.firstName,
+      occupation: clientFormValue.occupation,
+      gender: clientFormValue.gender,
+      birthDate: clientFormValue.birthDate,
+      phone: clientFormValue.phone,
+      email: clientFormValue.email,
+    };
+
+    this.clientService.create(client)
+      .subscribe(
+        result => {
+          this.dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
+
+          this.dialogRef.afterClosed()
+            .subscribe(() => {
+              this.location.back();
+            });
+        }
+      );
   }
 
 }

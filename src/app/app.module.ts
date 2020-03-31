@@ -24,6 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { BASE_URL } from './tokens';
 import { environment } from 'src/environments/environment';
@@ -37,6 +38,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './header/header.component';
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { SuccessDialogComponent } from './shared/dialogs/success-dialog/success-dialog.component';
+import { ErrorDialogComponent } from './shared/dialogs/error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,9 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     SidenavListComponent,
     FooterComponent,
-    AddClientComponent
+    AddClientComponent,
+    SuccessDialogComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -77,10 +82,13 @@ import { FooterComponent } from './footer/footer.component';
     MatToolbarModule,
     MatListModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [
-    { provide: 'BASE_URL', useValue: environment.apiRoot }
+    { provide: 'BASE_URL', useValue: environment.apiRoot },
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] }
   ],
   bootstrap: [AppComponent]
 })
