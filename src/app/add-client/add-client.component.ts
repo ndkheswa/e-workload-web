@@ -5,6 +5,7 @@ import { ClientService } from '../service/client.service';
 import { SuccessDialogComponent } from '../shared/dialogs/success-dialog/success-dialog.component';
 import { Location } from '@angular/common';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ErrorHandlerService } from '../shared/error-handler.service';
 
 @Component({
   selector: 'app-add-client',
@@ -18,7 +19,8 @@ export class AddClientComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
   constructor(private clientService: ClientService, private dialogRef: MatDialogRef<SuccessDialogComponent>,
-              private dialog: MatDialog, private location: Location, @Inject(MAT_DIALOG_DATA) public data: any) { }
+              private dialog: MatDialog, private location: Location, @Inject(MAT_DIALOG_DATA) public data: any,
+              private errorService: ErrorHandlerService) { }
 
   ngOnInit(): void {
     this.clientForm = new FormGroup({
@@ -44,7 +46,7 @@ export class AddClientComponent implements OnInit {
   }
 
   public onCancel = () => {
-    console.log('TODO');
+    this.location.back();
   }
 
   public registerClient = (clientFormValue) => {
@@ -75,7 +77,11 @@ export class AddClientComponent implements OnInit {
             .subscribe(() => {
               this.location.back();
             });
-        }
+        },
+        (error => {
+          this.errorService.dialogConfig = { ...this.dialogConfig };
+          this.errorService.handleError(error);
+        })
       );
   }
 
