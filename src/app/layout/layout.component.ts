@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, observable } from 'rxjs';
+import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
+  visible: Observable<boolean>;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggle() {
+    this.visible = Observable.of(!this.visible);
   }
 
 }

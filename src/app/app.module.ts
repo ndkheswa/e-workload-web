@@ -40,6 +40,9 @@ import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { SuccessDialogComponent } from './shared/dialogs/success-dialog/success-dialog.component';
 import { ErrorDialogComponent } from './shared/dialogs/error-dialog/error-dialog.component';
+import { CallbackComponent } from './callback/callback.component';
+import { LoginComponent } from './login/login.component';
+import { OktaAuthModule, OktaAuthGuard, OktaAuthService } from '@okta/okta-angular';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { ErrorDialogComponent } from './shared/dialogs/error-dialog/error-dialog
     FooterComponent,
     AddClientComponent,
     SuccessDialogComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    CallbackComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -83,9 +88,16 @@ import { ErrorDialogComponent } from './shared/dialogs/error-dialog/error-dialog
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    OktaAuthModule.initAuth({
+      issuer: 'https://{domainUrl}/oauth2/default',
+      redirectUri: 'http://localhost:4200/implicit/callback',
+      clientId: '{clientId}'
+    })
   ],
   providers: [
+    OktaAuthService,
+    OktaAuthGuard,
     { provide: 'BASE_URL', useValue: environment.apiRoot },
     { provide: MatDialogRef, useValue: {} },
     { provide: MAT_DIALOG_DATA, useValue: [] }
