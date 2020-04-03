@@ -12,7 +12,7 @@ import { Router, NavigationStart } from '@angular/router';
 export class LoginComponent implements OnInit {
   signIn;
   widget = new OktaSignIn({
-    baseUrl: 'https://dev-568888.okta.com',
+    baseUrl: '{baseUrl}',
     authParams: { pkce: true }
   });
   constructor(private oktaAuth: OktaAuthService, private router: Router) {

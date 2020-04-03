@@ -90,9 +90,9 @@ import { OktaAuthModule, OktaAuthGuard, OktaAuthService } from '@okta/okta-angul
     MatNativeDateModule,
     MatDialogModule,
     OktaAuthModule.initAuth({
-      issuer: 'https://dev-568888.okta.com/oauth2/default',
+      issuer: 'https://{domainUrl}/oauth2/default',
       redirectUri: 'http://localhost:4200/implicit/callback',
-      clientId: '0oa58kmqkl4gfndAb4x6'
+      clientId: '{clientId}'
     })
   ],
   providers: [
