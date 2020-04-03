@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'clients', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'implicit/callback', component: OktaCallbackComponent },
   { path: 'clients', component: ClientsComponent, canActivate: [ OktaAuthGuard ], data: { onAuthRequired } },
