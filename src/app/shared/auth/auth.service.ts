@@ -17,6 +17,7 @@ export class AuthService {
   LOGOUT_REDIRECT_URI = 'http://localhost/';
 
   private authClient = new OktaAuth({
+    url: 'https://dev-568888.okta.com',
     clientId: this.CLIENT_ID,
     issuer: this.ISSUER,
     redirectUri: this.LOGIN_REDIRECT_URI,
