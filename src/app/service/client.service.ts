@@ -3,6 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Client } from '../models/client.model';
+import { EnvService } from '../env.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +20,7 @@ export class ClientService {
 
   apiUrl: string;
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) { this.apiUrl = baseUrl; }
+  constructor(private env: EnvService, private http: HttpClient, @Inject('BASE_URL') baseUrl: string) { this.apiUrl = env.apiRoot; }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

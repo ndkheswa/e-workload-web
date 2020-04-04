@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
 import * as OktaSignIn from '@okta/okta-signin-widget';
 import { Router, NavigationStart } from '@angular/router';
+import { EnvService } from '../env.service';
 
+const env = new EnvService();
 @Component({
   selector: 'app-login',
   template: `<div id="okta-signin-container"></div>`,
@@ -12,7 +14,7 @@ import { Router, NavigationStart } from '@angular/router';
 export class LoginComponent implements OnInit {
   signIn;
   widget = new OktaSignIn({
-    baseUrl: '{baseUrl}',
+    baseUrl: `${env.oktaUrl}`,
     authParams: { pkce: true }
   });
   constructor(private oktaAuth: OktaAuthService, private router: Router) {

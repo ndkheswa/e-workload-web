@@ -1,8 +1,4 @@
 <div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
-  <div class="spinner-container" *ngIf="!dataSource">
-    <mat-spinner></mat-spinner>
-    <br /> <br />
-  </div>
 
   <p>
     <br />
@@ -14,7 +10,13 @@
     </mat-form-field>
   </p>
 
-  <h1>Clients</h1>
+    <div>
+      <div class="spinner-container" *ngIf="!dataSource">
+        <mat-spinner></mat-spinner>
+        <br /> <br />
+      </div>
+      <h1>Clients</h1>
+    </div>
 
 </div>
 <div>
