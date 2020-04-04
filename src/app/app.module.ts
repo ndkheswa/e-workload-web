@@ -43,6 +43,10 @@ import { ErrorDialogComponent } from './shared/dialogs/error-dialog/error-dialog
 import { CallbackComponent } from './callback/callback.component';
 import { LoginComponent } from './login/login.component';
 import { OktaAuthModule, OktaAuthGuard, OktaAuthService } from '@okta/okta-angular';
+import { EnvService } from './env.service';
+import { EnvServiceProvider } from './env.service.provider';
+
+const env = new EnvService();
 
 @NgModule({
   declarations: [
@@ -90,12 +94,13 @@ import { OktaAuthModule, OktaAuthGuard, OktaAuthService } from '@okta/okta-angul
     MatNativeDateModule,
     MatDialogModule,
     OktaAuthModule.initAuth({
-      issuer: 'https://{domainUrl}/oauth2/default',
-      redirectUri: 'http://localhost:4200/implicit/callback',
-      clientId: '{clientId}'
+      issuer: `https://${env.oktaDomain}/oauth2/default`,
+      redirectUri: 'http://localhost/implicit/callback',
+      clientId: `${env.clientId}`
     })
   ],
   providers: [
+    EnvServiceProvider,
     OktaAuthService,
     OktaAuthGuard,
     { provide: 'BASE_URL', useValue: environment.apiRoot },

@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Observer } from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 import { Router } from '@angular/router';
 import OktaAuth from '@okta/okta-auth-js';
+import { EnvService } from '../../env.service';
+
+const env = new EnvService();
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  CLIENT_ID = '{clientId}';
-  ISSUER = 'https://domainUrl/oauth2/default';
-  LOGIN_REDIRECT_URI = 'http://localhost:4200/implicit/callback';
-  LOGOUT_REDIRECT_URI = 'http://localhost:4200';
+  CLIENT_ID = `${env.clientId}`;
+  ISSUER = `https://${env.oktaDomain}/oauth2/default`;
+  LOGIN_REDIRECT_URI = 'http://localhost/implicit/callback';
+  LOGOUT_REDIRECT_URI = 'http://localhost/';
 
   private authClient = new OktaAuth({
     clientId: this.CLIENT_ID,
