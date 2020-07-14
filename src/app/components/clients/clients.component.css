@@ -1,0 +1,95 @@
+.container{
+  background-color: white;
+}
+
+.main-content{
+  width: 90%;
+  font-size: larger;
+}
+
+p {
+  width: 100%;
+  background-color: white;
+  margin-left: 0px;
+  font-size: small;
+}
+
+h1 {
+  position: relative;
+  margin-right: 900px;
+  font-weight: 550;
+}
+
+table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
+}
+
+.mat-column-clientId, .mat-column-gender, .mat-column-dob, .mat-column-details{
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 17% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-firstName, .mat-column-lastName, .mat-column-phone, .mat-column-occupation{
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 17% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-cell{
+  font-size: medium;
+  font-family: Source Sans Pro;
+}
+
+.mat-header-cell{
+  font-size: large;
+  font-family: Source Sans Pro;
+}
+
+.mat-header-cell .mat-sort-header-sorted {
+  color: #0A0A0A;
+}
+
+.mat-row{
+  display: inline-flex;
+  min-width: 100%;
+}
+
+md-pagination-wrapper {
+  width:auto !important;
+}
+
+md-row:nth-child(even){
+background-color:#EDF1F5;
+}
+
+md-row:nth-child(odd){
+background-color:#FDFDFB;
+}
+
+.mat-column-color {
+  flex: 0 0 10px;
+}

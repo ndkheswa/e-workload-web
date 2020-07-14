@@ -1,0 +1,62 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="1600px" fxLayoutGap="10px" fxFlex.xs="100%">
+    <mat-card-title>Register Client</mat-card-title>
+    <h2>Biographical Information</h2>
+
+    <form [formGroup]="clientForm" autocomplete="off"  (ngSubmit)="registerClient(clientForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+        <mat-card-content>
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="firstName">
+            <mat-hint>Forename</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Surname</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="lastName">
+            <mat-hint>Legal Name</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Occupation</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="occupation">
+            <mat-hint>Employed/Student/Scholar</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Gender</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="gender">
+            <mat-hint>Male/Female/Other</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth" formControlName="birthDate" id="birthDate"
+              readonly (click)="picker.open()">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-hint>select date</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="phone">
+            <mat-hint>+2783 000 0000</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email Address</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="email">
+            <mat-hint>test@test.com</mat-hint>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align="center">
+          <button mat-raised-button color="primary" [disabled]="!clientForm.valid">Create</button>
+          <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
+
+    </form>
+  </mat-card>
+
+</section>
