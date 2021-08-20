@@ -5,22 +5,18 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { Client } from '../models/client.model';
 import { EnvService } from '../env.service';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
-  httpOptions = {
+  private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   apiUrl: string;
 
-  constructor(private env: EnvService, private http: HttpClient, @Inject('BASE_URL') baseUrl: string) { this.apiUrl = env.apiRoot; }
+  constructor(private env: EnvService, private http: HttpClient, @Inject('BASE_URL') baseUrl: string) { this.apiUrl = baseUrl; }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
